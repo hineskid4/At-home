@@ -1,0 +1,20 @@
+from guizero import App, PushButton
+import random
+
+moving_button = App("Moving Button", width=1000, height=700)
+
+clicks = 0
+def move_and_count():
+    global clicks
+    clicks += 1
+    item_button.text = clicks
+    new_x = random.randint(1, 900)
+    new_y = random.randint(1, 600)
+    item_button.tk.place(x=new_x, y=new_y)
+
+item_button = PushButton(moving_button, text="", 
+                         command=move_and_count, 
+                         width=12, height=1)
+item_button.tk.place(x=50, y=50)
+
+moving_button.display()
