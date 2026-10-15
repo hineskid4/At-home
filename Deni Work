@@ -1,0 +1,40 @@
+# Global constants
+BC_TAX = 0.12
+AB_TAX = 0.05
+QB_TAX = 0.14975
+
+TIP_RATE = 0.12
+
+# Get the meal cost
+cost = float(input("Enter the cost of the meal: $"))
+
+# Give the user province options
+print("\nSelect your province:")
+print("1. British Columbia (BC)")
+print("2. Alberta (AB)")
+print("3. Quebec (QB)")
+
+province = input("Enter your choice (1-3): ")
+
+# Determine the tax rate
+if province == "1":
+    tax_rate = BC_TAX
+elif province == "2":
+    tax_rate = AB_TAX
+elif province == "3":
+    tax_rate = QB_TAX
+else:
+    print("Invalid province choice.")
+    exit()
+
+# Calculate tax, tip, and grand total
+tax = cost * tax_rate
+tip = cost * TIP_RATE
+grand_total = cost + tax + tip
+
+# Display the results
+print("\n--- Meal Receipt ---")
+print(f"Meal cost:  ${cost:.2f}")
+print(f"Tax amount: ${tax:.2f}")
+print(f"Tip amount: ${tip:.2f}")
+print(f"Grand total: ${grand_total:.2f}")
